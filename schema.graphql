@@ -1,0 +1,157 @@
+"""
+A container type for an instance of the HyperdriveClient.
+"""
+type Client {
+  endpoint: String
+}
+
+"""
+Stats about a metadata Hypercore feed in a Hyperdrive.
+"""
+type MetadataStats {
+  key: String
+  peers: Int
+  totalBlocks: Int
+  uploadedBytes: Int
+  uploadedBytesCumulative: Int
+  downloadedBytes: Int
+  downloadedBlocks: Int
+  downloadedBytesCumulative: Int
+}
+
+"""
+Stats about a content Hypercore feed in a Hyperdrive.
+"""
+type ContentStats {
+  key: String
+  peers: Int
+  totalBlocks: Int
+  uploadedBytes: Int
+  uploadedBytesCumulative: Int
+  downloadedBytes: Int
+  downloadedBlocks: Int
+  downloadedBytesCumulative: Int
+}
+
+"""
+A stats container for the metadata and content Hypercore feeds in a Hyperdrive. A
+path to the mount is also exposed.
+"""
+type Stats {
+  metadata: MetadataStats
+  content: ContentStats
+  path: String
+}
+
+"""
+A container type for a Hyperdrive.
+"""
+type Drive {
+  id: Int
+  key: String
+  discoveryKey: String
+  writbable: Boolean
+  stats(path: String): [Stats]
+}
+
+"""
+A container for a connected peer's information.
+"""
+type Peer {
+  noiseKey: String
+  address: String
+  type: String
+}
+
+"""
+A input container for filtering on drives when querying for them.
+"""
+input DrivesFilterInput {
+  id: Int
+  id_ne: Int
+  id_gt: Int
+  id_lt: Int
+  id_gte: Int
+  id_lte: Int
+
+  key: String
+  key_ne: String
+  key_gt: String
+  key_lt: String
+  key_gte: String
+  key_lte: String
+
+  discoveryKeyKey: String
+  discoveryKeyKey_ne: String
+  discoveryKeyKey_gt: String
+  discoveryKeyKey_lt: String
+  discoveryKeyKey_gte: String
+  discoveryKeyKey_lte: String
+
+  peers: Int
+  peer_ne: Int
+  peers_gt: Int
+  peers_lt: Int
+  peers_gte: Int
+  peers_lte: Int
+
+  totalBlocks: Int
+  totalBlocks_ne: Int
+  totalBlocks_gt: Int
+  totalBlocks_lt: Int
+  totalBlocks_gte: Int
+  totalBlocks_lte: Int
+
+  uploadedBytes: Int
+  uploadedBytes_ne: Int
+  uploadedBytes_gt: Int
+  uploadedBytes_lt: Int
+  uploadedBytes_gte: Int
+  uploadedBytes_lte: Int
+
+  uploadedBytesCumulative: Int
+  uploadedBytesCumulative_ne: Int
+  uploadedBytesCumulative_gt: Int
+  uploadedBytesCumulative_lt: Int
+  uploadedBytesCumulative_gte: Int
+  uploadedBytesCumulative_lte: Int
+
+  downloadedBytes: Int
+  downloadedBytes_ne: Int
+  downloadedBytes_gt: Int
+  downloadedBytes_lt: Int
+  downloadedBytes_gte: Int
+  downloadedBytes_lte: Int
+
+  downloadedBlocks: Int
+  downloadedBlocks_ne: Int
+  downloadedBlocks_gt: Int
+  downloadedBlocks_lt: Int
+  downloadedBlocks_gte: Int
+  downloadedBlocks_lte: Int
+
+  downloadedBytesCumulative: Int
+  downloadedBytesCumulative_ne: Int
+  downloadedBytesCumulative_gt: Int
+  downloadedBytesCumulative_lt: Int
+  downloadedBytesCumulative_gte: Int
+  downloadedBytesCumulative_lte: Int
+}
+
+"""
+The query implementation for this schema.
+"""
+type Query {
+  client: Client
+  stats: [Stats]
+  drives(where: DrivesFilterInput): [Drive]
+  drive(key: String): Drive
+  peers(discoveryKey: String): [Peer]
+}
+
+"""
+The schema implementation.
+"""
+schema {
+  query: Query
+}

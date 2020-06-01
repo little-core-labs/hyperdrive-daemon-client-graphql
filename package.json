@@ -1,0 +1,32 @@
+{
+  "name": "hyperdrive-daemon-client-graphql",
+  "version": "0.0.0",
+  "description": "A GraphQL interface over a connected Hyperdrive Daemon Client.",
+  "main": "index.js",
+  "scripts": {
+    "test": ":"
+  },
+  "keywords": [
+    "hyperdrive",
+    "daemon",
+    "client",
+    "graphql"
+  ],
+  "author": "Joseph Werle <werle@littlestar.com>",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-compose": "^7.17.0"
+  },
+  "devDependencies": {
+    "graphql": "^15.0.0",
+    "hyperdrive-daemon-client": "^1.15.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/little-core-labs/hyperdrive-daemon-client-graphql.git"
+  },
+  "bugs": {
+    "url": "https://github.com/little-core-labs/hyperdrive-daemon-client-graphql/issues"
+  },
+  "homepage": "https://github.com/little-core-labs/hyperdrive-daemon-client-graphql#readme"
+}
