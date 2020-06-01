@@ -81,12 +81,12 @@ input DrivesFilterInput {
   key_gte: String
   key_lte: String
 
-  discoveryKeyKey: String
-  discoveryKeyKey_ne: String
-  discoveryKeyKey_gt: String
-  discoveryKeyKey_lt: String
-  discoveryKeyKey_gte: String
-  discoveryKeyKey_lte: String
+  discoveryKey: String
+  discoveryKey_ne: String
+  discoveryKey_gt: String
+  discoveryKey_lt: String
+  discoveryKey_gte: String
+  discoveryKey_lte: String
 
   peers: Int
   peer_ne: Int
